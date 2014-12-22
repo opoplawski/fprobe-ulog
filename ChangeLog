@@ -1,0 +1,26 @@
+2005-01-30  Slava Astashonok <sla@0n.ru>
+
+	* Release 1.1: bugfixes, features enhancement.
+
+	* Changes:
+	- was fixed vulnerability to a DoS attack, as described in "Denial
+          of Service via Algorithmic Complexity Attacks" by Scott A
+          Crosby and Dan S Wallach: http://www.cs.rice.edu/~scrosby/hash,
+	  by strengthening the crc16 hash function implementation;
+	  note that xor8 and xor16 hashes remain vulnerable
+	- default hash was changed to crc16
+	- -B and -M options were added
+	- if_nametoindex() used as default action to find SNMP-index
+
+2004-09-21  Slava Astashonok <sla@0n.ru>
+
+	* Release 1.0.6: minor bugfixes.
+
+	* Changes:
+	- security fix for "change user" feature
+	- typo in CAPTURE_SIZE definition was fixed
+	- debian/* files were removed
+
+2004-08-14  Slava Astashonok <sla@0n.ru>
+
+	* Release 1.0.5: initial ULOG fork
