@@ -24,7 +24,7 @@
 /* sig*() */
 #include <signal.h>
 
-#include <libipulog/libipulog.h>
+#include <libnetfilter_log/libipulog.h>
 struct ipulog_handle {
 	int fd;
 	u_int8_t blocking;

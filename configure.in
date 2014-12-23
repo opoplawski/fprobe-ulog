@@ -183,4 +183,4 @@ AC_SUBST(VERSION)
 DATE=`date +%Y-%m-%d`
 AC_SUBST(DATE)
 
-AC_OUTPUT(Makefile src/Makefile src/libipulog/Makefile)
+AC_OUTPUT(Makefile src/Makefile)

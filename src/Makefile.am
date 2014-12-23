@@ -1,5 +1,3 @@
-INCLUDES = -I$(top_srcdir)/src/libipulog/include
-
 sbin_PROGRAMS = fprobe-ulog
 fprobe_ulog_SOURCES = fprobe-ulog.c fprobe-ulog.h \
 	netflow.c netflow.h \
@@ -11,8 +9,6 @@ fprobe_ulog_SOURCES = fprobe-ulog.c fprobe-ulog.h \
 
 man_MANS = fprobe-ulog.8
 
-SUBDIRS = libipulog
-
 EXTRA_DIST = ${man_MANS}
 
-fprobe_ulog_LDADD = libipulog/libipulog.a
+fprobe_ulog_LDADD = -lnetfilter_log-libipulog
