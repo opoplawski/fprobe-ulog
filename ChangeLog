@@ -1,3 +1,7 @@
+2014-12-23  Orion Poplawski <orion@cora.nwra.com>
+
+	* Release 1.2: Convert to libnetfilter_log_libipulog
+
 2005-01-30  Slava Astashonok <sla@0n.ru>
 
 	* Release 1.1: bugfixes, features enhancement.
