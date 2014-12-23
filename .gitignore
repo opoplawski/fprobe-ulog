@@ -1,0 +1,4 @@
+Makefile.in
+autom4te.cache/
+configure
+src/Makefile.in
