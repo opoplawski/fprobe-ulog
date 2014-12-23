@@ -4,7 +4,7 @@ define([AC_CACHE_SAVE], )
 
 AC_INIT
 AC_CANONICAL_SYSTEM
-AM_INIT_AUTOMAKE(fprobe-ulog,1.1)
+AM_INIT_AUTOMAKE(fprobe-ulog,1.2)
 AM_CONFIG_HEADER(config.h)
 
 AC_PROG_CC
