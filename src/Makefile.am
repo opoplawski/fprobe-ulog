@@ -11,4 +11,4 @@ man_MANS = fprobe-ulog.8
 
 EXTRA_DIST = ${man_MANS}
 
-fprobe_ulog_LDADD = -lnetfilter_log-libipulog
+fprobe_ulog_LDADD = -lnetfilter_log_libipulog

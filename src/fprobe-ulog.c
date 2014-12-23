@@ -24,6 +24,9 @@
 /* sig*() */
 #include <signal.h>
 
+#include <asm/types.h>
+#include <sys/socket.h>
+#include <linux/netlink.h>
 #include <libnetfilter_log/libipulog.h>
 struct ipulog_handle {
 	int fd;
