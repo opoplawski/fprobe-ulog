@@ -61,7 +61,7 @@ void *mem_alloc()
 #endif
 		for (i = 0; i < bulk_quantity; i++) {
 #if MEM_BITS == 0
-			*iptr++ = eptr;
+			*iptr++ = (mem_index_t)eptr;
 			eptr += element_size;
 #else
 			*iptr++ = i;
@@ -91,7 +91,7 @@ void *mem_alloc()
 	free_elements--;
 	iptr = (void *) mptr + sizeof(struct Mem);
 #if MEM_BITS == 0
-	mptr = iptr[mptr->free];
+	mptr = (struct Mem *)iptr[mptr->free];
 #else
 	mptr = mptr->first + iptr[mptr->free] * element_size;
 #endif
@@ -125,7 +125,7 @@ void mem_free(void *eptr)
 	}
 	iptr = (void *) mptr + sizeof(struct Mem);
 #if MEM_BITS == 0
-	iptr[mptr->free] = eptr;
+	iptr[mptr->free] = (mem_index_t)eptr;
 #else
 	iptr[mptr->free] = (eptr - mptr->first) / element_size;
 #endif

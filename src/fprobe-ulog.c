@@ -147,13 +147,13 @@ static int frag_lifetime = 30;
 static int inactive_lifetime = 60;
 static int active_lifetime = 300;
 static int sockbufsize;
-#define BULK_QUANTITY_MAX (unsigned)(mem_index_t)(-1)
+#define BULK_QUANTITY_MAX (mem_index_t)(-1)
 #if (MEM_BITS == 0) || (MEM_BITS == 16)
 #define BULK_QUANTITY 10000
 #else
 #define BULK_QUANTITY 200
 #endif
-static unsigned bulk_quantity = BULK_QUANTITY;
+static mem_index_t bulk_quantity = BULK_QUANTITY;
 static unsigned pending_queue_length = 100;
 static struct NetFlow *netflow = &NetFlow5;
 static unsigned verbosity = 6;
@@ -210,7 +210,7 @@ static int killed;
 static int emit_timeout = EMIT_TIMEOUT, unpending_timeout = UNPENDING_TIMEOUT;
 static struct ipulog_handle *ulog_handle;
 static uint32_t ulog_gmask = 1;
-static char *cap_buf;
+static unsigned char *cap_buf;
 static int nsnmp_rules;
 static struct snmp_rule *snmp_rules;
 static struct passwd *pw = 0;
@@ -231,7 +231,7 @@ void usage()
 		"-a <address>\tUse <address> as source for NetFlow flow\n"
 		"-X <rules>\tInterface name to SNMP-index conversion rules\n"
 		"-M\t\tUse netfilter mark value as ToS flag\n"
-		"-b <flows>\tMemory bulk size (1..%u) [%u]\n"
+		"-b <flows>\tMemory bulk size (1..%lu) [%lu]\n"
 		"-m <kilobytes>\tMemory limit (0=no limit) [0]\n"
 		"-q <flows>\tPending queue length [100]\n"
 		"-B <kilobytes>\tKernel capture buffer size [0]\n"
@@ -869,7 +869,8 @@ void *cap_thread()
 	struct ip *nl;
 	void *tl;
 	struct Flow *flow;
-	int len, off_frag, psize;
+	int off_frag, psize;
+	ssize_t len;
 #if ((DEBUG) & DEBUG_C)
 	char buf[64];
 	char logbuf[256];

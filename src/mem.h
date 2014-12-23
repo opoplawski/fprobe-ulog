@@ -21,7 +21,7 @@
 #include <my_inttypes.h>
 
 #if MEM_BITS == 0
-typedef void* mem_index_t;
+typedef uintptr_t mem_index_t;
 #endif
 #if MEM_BITS == 8
 typedef uint8_t mem_index_t;
